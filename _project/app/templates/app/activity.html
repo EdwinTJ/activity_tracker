@@ -1,17 +1,41 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Acticity Tracker</title>
-        <link rel="stylesheet" href="{% static 'app/style.css' %}">
-    
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity Tracker</title>
+    <link rel="stylesheet" href="{% static 'app/style.css' %}">
+</head>
 <body>
-    <h1>New Activity</h1>
+    <h1>Activity Details</h1>
     <section>
-{% comment %} Display Activity by id {% endcomment %}
-    </section> 
+        {% if data.activity %}
+            <div class="activity">
+                <h2>{{ data.activity.name }}</h2>
+            </div>
+
+            <div class="timelogs">
+                {% if data.timelogs %}
+                    <h2>Time Logs:</h2>
+                    <ul>
+                        {% for timelog in data.timelogs %}
+                            <li>{{ timelog.start_time }} to {{ timelog.end_time }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>No time logs found for this activity.</p>
+                {% endif %}
+            </div>
+            <div class="time-spent">
+                <p>Time Spent: {{ data.activity.time_spent }}</p>
+            </div>
+            <div class="new-timelog-link">
+                <a href="{% url 'new_timelog' id=data.activity.id %}">Add New TimeLog</a>
+            </div>
+        {% else %}
+            <p>Eror: No activity found.</p>
+        {% endif %}
+    </section>
 </body>
 </html>

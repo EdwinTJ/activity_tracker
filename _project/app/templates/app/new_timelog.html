@@ -1,19 +1,30 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Acticity Tracker</title>
-        <link rel="stylesheet" href="{% static 'app/style.css' %}">
-    
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New TimeLog</title>
+    <link rel="stylesheet" href="{% static 'app/style.css' %}">
+</head>
 <body>
-    <h1>New Time Log</h1>
+    <h1>New TimeLog</h1>
     <section>
-        {% comment %} Display Activity by id {% endcomment %}
-    </section> 
-    
+        {% if activity %}
+            <h2>{{ activity.name }}</h2>
+
+            <form action="{% url 'new_timelog' id=activity.id %}" method="post">
+                <label for="start_time">Start Time:</label>
+                <input type="datetime-local" name="start_time" required>
+
+                <label for="end_time">End Time:</label>
+                <input type="datetime-local" name="end_time" required>
+
+                <input type="submit" value="Submit">
+            </form>
+        {% else %}
+            <p>No activity found.</p>
+        {% endif %}
+    </section>
 </body>
 </html>

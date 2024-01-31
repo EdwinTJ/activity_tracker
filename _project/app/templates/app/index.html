@@ -15,6 +15,15 @@
     <main>
         <section>
             {% comment %} TODO: display all activiteis {% endcomment %}
+            {% if activities%}
+            {% for activity in activities %}
+                <div class="activity">
+                    <h2><a href="{% url 'activity' id=activity.id %}">{{ activity.name }}</a></h2>
+                </div>
+            {% endfor %}
+            {%else%}
+            <p>No activities found</p>
+            {%endif%}
         </section>
     </main>
 </body>
