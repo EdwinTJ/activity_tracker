@@ -8,6 +8,15 @@
     <link rel="stylesheet" href="{% static 'app/style.css' %}">
 </head>
 <body>
+    <header>
+        <nav>
+          <div>
+              <ul>
+                  <li><a href="{% url 'index' %}">Activity Tracker</a></li>
+                  <li><a href="{% url 'new_activity' %}">Add Activity</a></li>
+              </ul>
+        </nav>
+      </header>
     <h1>New TimeLog</h1>
     <section>
         {% if activity %}

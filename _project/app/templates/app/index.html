@@ -10,21 +10,28 @@
 </head>
 <body>
     <header>
-        <h1>Activity Tracker</h1>
+      <nav>
+        <div>
+            <ul>
+                <li><a href="{% url 'index' %}">Activity Tracker</a></li>
+                <li><a href="{% url 'new_activity' %}">Add Activity</a></li>
+            </ul>
+      </nav>
     </header>
-    <main>
-        <section>
-            {% comment %} TODO: display all activiteis {% endcomment %}
-            {% if activities%}
-            {% for activity in activities %}
-                <div class="activity">
-                    <h2><a href="{% url 'activity' id=activity.id %}">{{ activity.name }}</a></h2>
+        <main >
+
+            <section class="flex-contaier" >
+                {% if activities%}
+                {% for activity in activities %}
+                <div class="flex-card">
+                    <a href="{% url 'activity' id=activity.id %}"><h2><b>{{ activity.name }}</b></h2></a>
+                    <p>{{activity.time_spent}}</p>
                 </div>
-            {% endfor %}
-            {%else%}
-            <p>No activities found</p>
-            {%endif%}
-        </section>
-    </main>
+                {% endfor %}  
+                {%else%}
+                <p>No activities found</p>
+                {%endif%} 
+            </section>
+        </main>
 </body>
 </html>

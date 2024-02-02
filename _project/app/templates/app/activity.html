@@ -8,8 +8,19 @@
     <link rel="stylesheet" href="{% static 'app/style.css' %}">
 </head>
 <body>
-    <h1>Activity Details</h1>
+   <main>
+    <header>
+        <nav>
+          <div>
+              <ul>
+                  <li><a href="{% url 'index' %}">Activity Tracker</a></li>
+                  <li><a href="{% url 'new_activity' %}">Add Activity</a></li>
+              </ul>
+        </nav>
+      </header>
     <section>
+        <h1>Activity Details</h1>
+
         {% if data.activity %}
             <div class="activity">
                 <h2>{{ data.activity.name }}</h2>
@@ -37,5 +48,6 @@
             <p>Eror: No activity found.</p>
         {% endif %}
     </section>
+   </main>
 </body>
 </html>
