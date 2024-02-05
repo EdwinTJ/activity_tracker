@@ -22,16 +22,16 @@
             {% if activities%}
                 <ul class="flex-contaier" >
                 {% for activity in activities %}
+                <a  href="{% url 'activity' id=activity.id %}">
                 <div class="sparkle u-hover--sparkle">
-
                 <li class="flex-item">
                     {% comment %} <a href="{% url 'activity' id=activity.id %}">{{ activity.name }}</a> {% endcomment %}
-                   <a  href="{% url 'activity' id=activity.id %}"><b>{{activity.name}}</b></a>
+                   <b>{{activity.name}}</b>
                    <hr/> 
                    <p id="time">{{activity.time_spent}}</p>
                 </li>
             </div>
-
+        </a>
                 {% endfor %} 
             </ul> 
             {%else%}

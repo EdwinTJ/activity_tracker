@@ -19,34 +19,52 @@
         </nav>
       </header>
     <section>
-        <h1>Activity Details</h1>
 
         {% if data.activity %}
-            <div class="activity">
-                <h2>{{ data.activity.name }}</h2>
+            <div >
+                <h2 id="title">{{ data.activity.name }} Details:</h2>
             </div>
 
-            <div class="timelogs">
+            <div>
                 {% if data.timelogs %}
-                    <h2>Time Logs:</h2>
-                    <ul>
+                    <h2 id="title">Time Logs:</h2>
+                    {% comment %} <ul>
                         {% for timelog in data.timelogs %}
                             <li>{{ timelog.start_time }} to {{ timelog.end_time }}</li>
                         {% endfor %}
-                    </ul>
+                    </ul> {% endcomment %}
+                    <table>
+                        <tr>
+                            <th>Start Time</th>
+                            <th>End Time</th>
+                        </tr>
+                        {% for timelog in data.timelogs %}
+                            <tr>
+                                <td>{{ timelog.start_time }}</td>
+                                <td>{{ timelog.end_time }}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
                 {% else %}
                     <p>No time logs found for this activity.</p>
                 {% endif %}
             </div>
-            <div class="time-spent">
-                <p>Time Spent: {{ data.activity.time_spent }}</p>
+            <div >
+                <table >
+                    <tbody>
+                      <tr>
+                        <td>Total Time Spend: {{ data.activity.time_spent }}</td>
+                      </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="new-timelog-link">
-                <a href="{% url 'new_timelog' id=data.activity.id %}">Add New TimeLog</a>
-            </div>
+       
         {% else %}
             <p>Eror: No activity found.</p>
         {% endif %}
+             <div class="flex-contaier" >
+                <a href="{% url 'new_timelog' id=data.activity.id %}" class="btn">Add New TimeLog</a>
+            </div>
     </section>
    </main>
 </body>
