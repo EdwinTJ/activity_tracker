@@ -51,17 +51,22 @@ li a:hover{
 
 .flex-item {
     background: tomato;
-    padding: 5px;
     width: 350px;
     height: 150px;
-    margin: 5px;
     color: white;
     font-weight: bold;
     font-size: 1.5em;
     text-align: center;
-    border: 5px solid  black;
+    border: 3px solid  black;
 }
 
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid blueviolet;
+    margin: 1.5em 0;
+}
 
 #time{
     text-align: center;

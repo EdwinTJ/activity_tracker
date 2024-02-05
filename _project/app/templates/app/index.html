@@ -27,7 +27,8 @@
                 <li class="flex-item">
                     {% comment %} <a href="{% url 'activity' id=activity.id %}">{{ activity.name }}</a> {% endcomment %}
                    <a  href="{% url 'activity' id=activity.id %}"><b>{{activity.name}}</b></a>
-                    <p id="time">{{activity.time_spent}}</p>
+                   <hr/> 
+                   <p id="time">{{activity.time_spent}}</p>
                 </li>
             </div>
 
