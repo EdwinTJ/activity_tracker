@@ -40,26 +40,33 @@ li a:hover{
 }
 
 /* ====== Body ===== */
-
 .flex-contaier{
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly ;
-    border: 10px solid red;
-    padding: 0;
-    margin: 0;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    padding: 1px;
+    margin: 2px;
     list-style: none;
 }
 
-.flex-card{
+.flex-item {
     background: tomato;
     padding: 5px;
-    width: 200px;
+    width: 350px;
     height: 150px;
-    margin-top: 10px;
-    line-height: 150px;
+    margin: 5px;
     color: white;
     font-weight: bold;
     font-size: 3em;
     text-align: center;
+    border: 5px solid  black;
 }
+
+
+#time{
+    text-align: left;
+    font-size: 0.5em;
+    color: #000;
+}
+
+/* ===== Animation ===== */

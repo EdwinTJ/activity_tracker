@@ -18,20 +18,24 @@
             </ul>
       </nav>
     </header>
-        <main >
-
-            <section class="flex-contaier" >
-                {% if activities%}
+        <section>
+            {% if activities%}
+                <ul class="flex-contaier" >
                 {% for activity in activities %}
-                <div class="flex-card">
-                    <a href="{% url 'activity' id=activity.id %}"><h2><b>{{ activity.name }}</b></h2></a>
-                    <p>{{activity.time_spent}}</p>
-                </div>
-                {% endfor %}  
-                {%else%}
+                <div class="sparkle u-hover--sparkle">
+
+                <li class="flex-item">
+                    {% comment %} <a href="{% url 'activity' id=activity.id %}">{{ activity.name }}</a> {% endcomment %}
+                   <a  href="{% url 'activity' id=activity.id %}"><b>{{activity.name}}</b></a>
+                    <p id="time">{{activity.time_spent}}</p>
+                </li>
+            </div>
+
+                {% endfor %} 
+            </ul> 
+            {%else%}
                 <p>No activities found</p>
-                {%endif%} 
-            </section>
-        </main>
+            {%endif%} 
+        </section>
 </body>
 </html>
